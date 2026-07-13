@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cart.css">
+    <title>Mocha</title>
+</head>
+
+<body>
+    <header class="header">
+        <section>
+            <a href="#" class="logo">
+                <img width="50" height="50" src="./img/logo.png" alt="logo">
+            </a>
+
+            <nav class="navbar">
+                <a href="#home">Home</a>
+                <a href="#about">Sobre</a>
+                <a href="#menu">Menu</a>
+                <a href="#review">Avaliações</a>
+                <a href="#address">Endereço</a>
+            </nav>
+
+            <div class="icons">
+                <img width="35" height="35" src="./img/search.png">
+                <a href="cart.html">
+                    <img width="35" height="35" src="./img/cart.png">
+                    <span id="cart-count">0</span>
+                    <div class="cart-left">
+                        <h1>Seu Carrinho</h1>
+                        <div id="lista-carrinho"></div>
+                        <h2 id="total-carrinho">Total: R$ 0,00</h2>
+                        <button>Finalizar Compra</button>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </header>
+
+    <section class="produto">
+        <img src="./img/menu-3.png" alt="Mocha">
+        <section class="menu" id="menu"></section>
+        <h1>Mocha</h1>
+        <p>Café intenso, preparado com grãos selecionados.</p>
+        <p>Preço: R$<del>8,50</del> 6,00</p>
+        <a href="#"><button class="btn" onclick="adicionarCarrinho('Mocha', 6.00)">
+                Adicionar ao Carrinho</a></button>
+        <span id="cart-count">0</span>
+        <div class="cart-left">
+            <h1>Seu Carrinho</h1>
+            <div id="lista-carrinho"></div>
+            <h2 id="total">Total: R$ 0,00</h2>
+        </div>
+        </a>
+        <a href="index.html" class="btn">Voltar ao Menu</a>
+    </section>
+    <script src="script.js"></script>
+</body>
+
+</html>
