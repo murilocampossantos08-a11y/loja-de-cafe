@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -25,22 +25,21 @@
             </nav>
 
             <div class="icons">
-                <img width="35" height="35" src="./img/search.png">
                 <a href="cart.html">
                     <img width="35" height="35" src="./img/cart.png">
                     <span id="cart-count">0</span>
-                </a>    
-                    <div class="cart-left">
-                        <h1>Seu Carrinho</h1>
-                        <div id="lista-carrinho"></div>
-                        <h2 id="total-carrinho">Total: R$ 0,00</h2>
-                        <button>Finalizar Compra</button>
-                    </div>
+                </a>
+                <div class="cart-left">
+                    <h1>Seu Carrinho</h1>
+                    <div id="lista-carrinho"></div>
+                    <h2 id="total-carrinho">Total: R$ 0,00</h2>
+                    <button>Finalizar Compra</button>
+                </div>
             </div>
         </section>
     </header>
 
- <section class="review" id="review">
+    <section class="review" id="review">
         <button class="prev-review">❮</button>
         <h2 class="title">Nossos <span>Clientes</span></h2>
         <div class="review-slider">
@@ -80,12 +79,71 @@
 
     </section>
 
-        <footer>
+    <footer>
         <a href="#" class="logo">
-        <img src="./img/logo.png" width="100px" alt="logo">
+            <img src="./img/logo.png" width="100px" alt="logo">
         </a>
         <p>© 2026-2026, mcscafé.com, Inc.</p>
     </footer>
 
+    <script>
+        const reviews = document.querySelectorAll('.review-slider .box');
+        const prevReview = document.querySelector('.prev-review');
+        const nextReview = document.querySelector('.next-review');
+
+        let currentReview = 0;
+
+        function showReview(index) {
+
+            if (reviews.length === 0) return;
+            reviews.forEach(review => {
+                review.classList.remove('active');
+            });
+            reviews[index].classList.add('active');
+        }
+
+        if (nextReview) {
+            nextReview.addEventListener('click', () => {
+                currentReview++;
+                if (currentReview >= reviews.length) {
+                    currentReview = 0;
+                }
+
+                showReview(currentReview);
+            });
+        }
+
+        if (prevReview) {
+            prevReview.addEventListener('click', () => {
+                currentReview--;
+                if (currentReview < 0) {
+                    currentReview = reviews.length - 1;
+                }
+
+                showReview(currentReview);
+            });
+        }
+
+        // Troca automática a cada 3 segundos
+        if (reviews.length > 0) {
+            showReview(currentReview);
+            setInterval(() => {
+                currentReview++;
+                if (currentReview >= reviews.length) {
+                    currentReview = 0;
+                }
+
+                showReview(currentReview);
+            }, 3000);
+        }
+
+        // ==================== CARREGAMENTO ====================
+
+        document.addEventListener("DOMContentLoaded", () => {
+            atualizarCarrinho();
+            exibirCarrinho();
+        });</script>
+
 </body>
+
 </html>

@@ -475,6 +475,25 @@ section {
     background: #000;  
 }
 
+html, body{
+    height: 100%;
+    margin: 0;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main{
+    flex: 1;
+}
+
+footer{
+    margin: auto;
+}
+
 footer {
     display: flex;
     justify-content: space-between;
