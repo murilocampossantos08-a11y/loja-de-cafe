@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../admin.css">
+    <link rel="stylesheet" href="">
+    <title>cafés</title>
+</head>
+
+<body>
+    <header class="header">
+        <section>
+            <a href="produtos.html" class="logo">
+                <img width="50" height="50" src="../img/logo.png" alt="logo">
+            </a>
+
+            <nav class="navbar">
+                <a href="Produtos.html">produtos</a>
+                <a href="admin.html">vendas</a>
+                <a href="funcionarios.html">funcionarios</a>
+            </nav>
+            <a href="produtos.html" class="btn">adicionar</a>
+        </section>
+    </header>
+
+<div class="admin-container">
+  <div class="admin-header">
+    <h2>Gerenciamento de Produtos</h2>
+    <button class="btn btn-primary" id="btn-novo-produto">
+      <i class="fas fa-plus"></i> Novo Produto
+    </button>
+  </div>
+
+  <div class="filter-bar">
+    <div class="search-box">
+      <i class="fas fa-search"></i>
+      <input type="text" id="search-produto" placeholder="Buscar por produto...">
+    </div>
+    <div class="filter-group">
+      <select id="filter-categoria">
+        <option value="">Todas as Categorias</option>
+        <option value="cafes">Cafés</option>
+        <option value="bebidas">Bebidas Geladas</option>
+        <option value="doces">Doces & Sobremesas</option>
+        <option value="salgados">Salgados</option>
+      </select>
+      <select id="filter-status">
+        <option value="">Todos os Status</option>
+        <option value="ativo">Ativo</option>
+        <option value="inativo">Inativo</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="table-responsive">
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>Imagem</th>
+          <th>Nome</th>
+          <th>Categoria</th>
+          <th>Preço</th>
+          <th>Status</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <img src="img/espresso.jpg" alt="Café Espresso" class="product-thumb">
+          </td>
+          <td>
+            <strong>Espresso Tradicional</strong>
+            <small class="product-desc">Café encorpado extraído sob pressão.</small>
+          </td>
+          <td>Cafés</td>
+          <td>R$ 8,50</td>
+          <td><span class="badge status-active">Ativo</span></td>
+          <td>
+            <div class="action-buttons">
+              <button class="btn-icon btn-edit" title="Editar"><i class="fas fa-pen"></i></button>
+              <button class="btn-icon btn-delete" title="Excluir"><i class="fas fa-trash"></i></button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <img src="img/cappuccino.jpg" alt="Cappuccino" class="product-thumb">
+          </td>
+          <td>
+            <strong>Cappuccino Italiano</strong>
+            <small class="product-desc">Espresso, leite vaporizado e espuma de leite.</small>
+          </td>
+          <td>Cafés</td>
+          <td>R$ 14,00</td>
+          <td><span class="badge status-inactive">Inativo</span></td>
+          <td>
+            <div class="action-buttons">
+              <button class="btn-icon btn-edit" title="Editar"><i class="fas fa-pen"></i></button>
+              <button class="btn-icon btn-delete" title="Excluir"><i class="fas fa-trash"></i></button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>const produtos = [
+      "Café Coado",
+      "Espresso",
+      "Mocha",
+      "Cappuccino",
+      "Cold Brew",
+      "Macchiato"
+    ];
+
+    const vendas = [20, 5, 2, 7, 1, 4];
+
+    const paletaCafe = [
+      '#d3ad7f',
+      '#b88e5d',
+      '#8c653d',
+      '#5c3d21',
+      '#3a2412',
+      '#f4e3c5'
+    ];
+
+    Chart.defaults.color = '#ffffff';
+    Chart.defaults.font.family = 'Outfit, sans-serif';
+
+    new Chart(document.getElementById("graficoProdutos"), {
+
+      type: "pie",
+      data: {
+        labels: produtos,
+        datasets: [{
+          label: "Quantidade Vendida",
+          data: vendas,
+          borderWidth: 1
+        }]
+      },
+
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            display: false
+          }
+        }
+      }
+});</script>
+</body>
+</html>
